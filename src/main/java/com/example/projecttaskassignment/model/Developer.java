@@ -16,30 +16,64 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="developer")
-public class Developer extends AuditModel{
+@Table(name = "developer")
+public class Developer extends AuditModel {
 
+	/**
+	 * Declaring variable developerId
+	 *
+	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer developerId;
+
+	/**
+	 * Declaring variable emailId for developer class
+	 *
+	 */
 	private String emailId;
+
+	/**
+	 * Declaring variable name for developer class
+	 *
+	 */
 	private String name;
+
+	/**
+	 * Declaring variable task of Type Task for developer class
+	 *
+	 */
 	@OneToOne
-	@JoinColumn(name="taskId")
+	@JoinColumn(name = "taskId")
 	private Task task;
-	
+
 	/**
 	 * @param developerId
 	 * @param emailId
 	 * @param name
-	 * @param status
+	 * @param task
 	 */
-	public Developer(Integer developerId, String emailId, String name) {
+	public Developer(final Integer developerId, final String emailId, final String name, final Task task) {
 		super();
 		this.developerId = developerId;
 		this.emailId = emailId;
 		this.name = name;
-	
+		this.task = task;
+	}
+
+	/**
+	 * @return the task
+	 */
+	public Task getTask() {
+		return task;
+	}
+
+	/**
+	 * @param task
+	 *            the task to set
+	 */
+	public void setTask(final Task task) {
+		this.task = task;
 	}
 
 	/**
@@ -50,9 +84,10 @@ public class Developer extends AuditModel{
 	}
 
 	/**
-	 * @param developerId the developerId to set
+	 * @param developerId
+	 *            the developerId to set
 	 */
-	public void setDeveloperId(Integer developerId) {
+	public void setDeveloperId(final Integer developerId) {
 		this.developerId = developerId;
 	}
 
@@ -64,9 +99,10 @@ public class Developer extends AuditModel{
 	}
 
 	/**
-	 * @param emailId the emailId to set
+	 * @param emailId
+	 *            the emailId to set
 	 */
-	public void setEmailId(String emailId) {
+	public void setEmailId(final String emailId) {
 		this.emailId = emailId;
 	}
 
@@ -78,9 +114,10 @@ public class Developer extends AuditModel{
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 

@@ -18,62 +18,130 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "status")
 public class Status extends AuditModel {
+
+	/**
+	 * Declared variable statusId for class Status
+	 *
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer statusId;
+
+	/**
+	 * Declared variable currentlyDoingCount for class Status
+	 *
+	 */
 	private Integer currentlyDoingCount;
+
+	/**
+	 * Declared variable completedCount for class Status
+	 *
+	 */
 	private Integer completedCount;
+
+	/**
+	 * Declared variable toDoCount for class Status
+	 *
+	 */
 	private Integer toDoCount;
+
+	/**
+	 * Declared variable developer of type Developer for class Status
+	 *
+	 */
 	@OneToOne
-	@JoinColumn(name="developerId")
+	@JoinColumn(name = "developerId")
 	private Developer developer;
 
 	/**
-	 * Constructor
-	 *
+	 * @param statusId
+	 * @param currentlyDoingCount
+	 * @param completedCount
+	 * @param toDoCount
+	 * @param developer
 	 */
-	public Status(Integer statusId, Integer currentlyDoingCount, Integer completedCount, Integer toDoCount) {
+	public Status(final Integer statusId, final Integer currentlyDoingCount, final Integer completedCount,
+			final Integer toDoCount, final Developer developer) {
 		super();
 		this.statusId = statusId;
 		this.currentlyDoingCount = currentlyDoingCount;
 		this.completedCount = completedCount;
 		this.toDoCount = toDoCount;
+		this.developer = developer;
 	}
 
 	/**
-	 * Getter and setter
-	 *
+	 * @return the statusId
 	 */
 	public Integer getStatusId() {
 		return statusId;
 	}
 
-	public void setStatusId(Integer statusId) {
+	/**
+	 * @param statusId
+	 *            the statusId to set
+	 */
+	public void setStatusId(final Integer statusId) {
 		this.statusId = statusId;
 	}
 
+	/**
+	 * @return the currentlyDoingCount
+	 */
 	public Integer getCurrentlyDoingCount() {
 		return currentlyDoingCount;
 	}
 
-	public void setCurrentlyDoingCount(Integer currentlyDoingCount) {
+	/**
+	 * @param currentlyDoingCount
+	 *            the currentlyDoingCount to set
+	 */
+	public void setCurrentlyDoingCount(final Integer currentlyDoingCount) {
 		this.currentlyDoingCount = currentlyDoingCount;
 	}
 
+	/**
+	 * @return the completedCount
+	 */
 	public Integer getCompletedCount() {
 		return completedCount;
 	}
 
-	public void setCompletedCount(Integer completedCount) {
+	/**
+	 * @param completedCount
+	 *            the completedCount to set
+	 */
+	public void setCompletedCount(final Integer completedCount) {
 		this.completedCount = completedCount;
 	}
 
+	/**
+	 * @return the toDoCount
+	 */
 	public Integer getToDoCount() {
 		return toDoCount;
 	}
 
-	public void setToDoCount(Integer toDoCount) {
+	/**
+	 * @param toDoCount
+	 *            the toDoCount to set
+	 */
+	public void setToDoCount(final Integer toDoCount) {
 		this.toDoCount = toDoCount;
 	}
 
+	/**
+	 * @return the developer
+	 */
+	public Developer getDeveloper() {
+		return developer;
+	}
+
+	/**
+	 * @param developer
+	 *            the developer to set
+	 */
+	public void setDeveloper(final Developer developer) {
+		this.developer = developer;
+	}
 }

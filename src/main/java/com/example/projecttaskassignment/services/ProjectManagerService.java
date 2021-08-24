@@ -25,10 +25,14 @@ public class ProjectManagerService {
 	@Autowired
 	private TaskRepository taskRepository;
 
-	public List<Task> calculateColorOfResult(Integer projectManagerId) {
-		List<Task> taskList = projectManagerRepository.findProjectManagerById(projectManagerId);
-		for (Task task : taskList) {
-			String resultColour = taskService.calculateColorOfTask(task);
+	/**
+	 * method to calculate colourResult for project manager
+	 *
+	 */
+	public List<Task> calculateColorOfResult(final Integer projectManagerId) {
+		final List<Task> taskList = projectManagerRepository.findProjectManagerById(projectManagerId);
+		for (final Task task : taskList) {
+			final String resultColour = taskService.calculateColorOfTask(task);
 			task.setColourResult(resultColour);
 			taskRepository.save(task);
 		}

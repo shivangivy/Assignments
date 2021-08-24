@@ -5,17 +5,11 @@ package com.example.projecttaskassignment.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.joda.time.DateTime;
 
 /**
  * Task Class
@@ -25,15 +19,44 @@ import org.joda.time.DateTime;
 @Table(name = "task")
 public class Task extends AuditModel {
 
+	/**
+	 * Declared variable taskId for class Task
+	 *
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer taskId;
+
+	/**
+	 * Declared variable name for class Task
+	 *
+	 */
 	private String name;
+
+	/**
+	 * Declared variable status for class Task
+	 *
+	 */
 	private String status;
+
+	/**
+	 * Declared variable colourResult for class Task
+	 *
+	 */
 	private String colourResult;
+
+	/**
+	 * Declared variable createdDate for class Task
+	 *
+	 */
 	private Date createdDate;
+
+	/**
+	 * Declared variable completedDate for class Task
+	 *
+	 */
 	private Date completedDate;
-	
+
 	/**
 	 * @param taskId
 	 * @param name
@@ -42,7 +65,8 @@ public class Task extends AuditModel {
 	 * @param createdDate
 	 * @param completedDate
 	 */
-	public Task(Integer taskId, String name, String status, String colourResult, Date createdDate, Date completedDate) {
+	public Task(final Integer taskId, final String name, final String status, final String colourResult,
+			final Date createdDate, final Date completedDate) {
 		super();
 		this.taskId = taskId;
 		this.name = name;
@@ -50,6 +74,13 @@ public class Task extends AuditModel {
 		this.colourResult = colourResult;
 		this.createdDate = createdDate;
 		this.completedDate = completedDate;
+	}
+	
+	/**
+	 * Parameterless constructor
+	 */
+	public Task() {
+		super();
 	}
 
 	/**
@@ -60,9 +91,10 @@ public class Task extends AuditModel {
 	}
 
 	/**
-	 * @param taskId the taskId to set
+	 * @param taskId
+	 *            the taskId to set
 	 */
-	public void setTaskId(Integer taskId) {
+	public void setTaskId(final Integer taskId) {
 		this.taskId = taskId;
 	}
 
@@ -74,9 +106,10 @@ public class Task extends AuditModel {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -88,9 +121,10 @@ public class Task extends AuditModel {
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param status
+	 *            the status to set
 	 */
-	public void setStatus(String status) {
+	public void setStatus(final String status) {
 		this.status = status;
 	}
 
@@ -102,9 +136,10 @@ public class Task extends AuditModel {
 	}
 
 	/**
-	 * @param colourResult the colourResult to set
+	 * @param colourResult
+	 *            the colourResult to set
 	 */
-	public void setColourResult(String colourResult) {
+	public void setColourResult(final String colourResult) {
 		this.colourResult = colourResult;
 	}
 
@@ -116,9 +151,10 @@ public class Task extends AuditModel {
 	}
 
 	/**
-	 * @param createdDate the createdDate to set
+	 * @param createdDate
+	 *            the createdDate to set
 	 */
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(final Date createdDate) {
 		this.createdDate = createdDate;
 	}
 
@@ -130,26 +166,21 @@ public class Task extends AuditModel {
 	}
 
 	/**
-	 * @param completedDate the completedDate to set
+	 * @param completedDate
+	 *            the completedDate to set
 	 */
-	public void setCompletedDate(Date completedDate) {
+	public void setCompletedDate(final Date completedDate) {
 		this.completedDate = completedDate;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/*
+	 * to string method
+	 * 
 	 */
 	@Override
 	public String toString() {
 		return "Task [taskId=" + taskId + ", name=" + name + ", status=" + status + ", colourResult=" + colourResult
 				+ ", createdDate=" + createdDate + ", completedDate=" + completedDate + "]";
-	}
-
-	/**
-	 * 
-	 */
-	public Task() {
-		super();
 	}
 	
 }

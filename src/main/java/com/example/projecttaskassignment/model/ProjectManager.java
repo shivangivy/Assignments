@@ -12,18 +12,46 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Project Manager Class
+ *
+ */
 @Entity
 @Table(name = "project_manager")
 public class ProjectManager extends AuditModel {
 
+	/**
+	 * Declared variable projectManagerId for class project manager
+	 *
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer projectManagerId;
+
+	/**
+	 * Declared variable name for class project manager
+	 *
+	 */
 	private String name;
+
+	/**
+	 * Declared variable emailId for class project manager
+	 *
+	 */
 	private String emailId;
+
+	/**
+	 * Declared variable country for class project manager
+	 *
+	 */
 	private String country;
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	@JoinColumn(name="projectManagerId")
+
+	/**
+	 * Declared variable projects of type Project for class project manager
+	 *
+	 */
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "projectManagerId")
 	private List<Project> projects;
 
 	/**
@@ -35,8 +63,8 @@ public class ProjectManager extends AuditModel {
 	 * @param country
 	 * @param projects
 	 */
-	public ProjectManager(Integer projectManagerId, String name, String emailId, String country,
-			List<Project> projects) {
+	public ProjectManager(final Integer projectManagerId, final String name, final String emailId, final String country,
+			final List<Project> projects) {
 		super();
 		this.projectManagerId = projectManagerId;
 		this.name = name;
@@ -56,7 +84,7 @@ public class ProjectManager extends AuditModel {
 	 * @param projectManaferId
 	 *            the projectManaferId to set
 	 */
-	public void setProjectManagerId(Integer projectManagerId) {
+	public void setProjectManagerId(final Integer projectManagerId) {
 		this.projectManagerId = projectManagerId;
 	}
 
@@ -71,7 +99,7 @@ public class ProjectManager extends AuditModel {
 	 * @param name
 	 *            the name to set
 	 */
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -86,7 +114,7 @@ public class ProjectManager extends AuditModel {
 	 * @param emailId
 	 *            the emailId to set
 	 */
-	public void setEmailId(String emailId) {
+	public void setEmailId(final String emailId) {
 		this.emailId = emailId;
 	}
 
@@ -116,8 +144,7 @@ public class ProjectManager extends AuditModel {
 	 * @param projects
 	 *            the projects to set
 	 */
-	public void setProjects(List<Project> projects) {
+	public void setProjects(final List<Project> projects) {
 		this.projects = projects;
 	}
-
 }

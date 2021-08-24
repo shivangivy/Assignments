@@ -23,8 +23,12 @@ public class ProjectManagerController {
 	@Autowired
 	private ProjectManagerService projectManagerService;
 	
+	/**
+	 * To calculate colourResult of task 
+	 *
+	 */
 	@GetMapping("/projectmanager/{projectManagerId}")
-	public List<Task> calculateColorOfTasks(@PathVariable Integer projectManagerId){
+	public List<Task> calculateColorOfTasks(@PathVariable final Integer projectManagerId){
 		return projectManagerService.calculateColorOfResult(projectManagerId);
 	}
 }

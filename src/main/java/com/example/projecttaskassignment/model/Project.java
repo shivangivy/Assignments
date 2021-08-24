@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,15 +23,33 @@ import javax.persistence.Table;
 @Table(name = "project")
 public class Project extends AuditModel {
 
+	/**
+	 * Declared variable projectId for class Project
+	 *
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer projectId;
+
+	/**
+	 * Declared variable name for class Project
+	 *
+	 */
 	private String name;
+
+	/**
+	 * Declared variable duration for class Project
+	 *
+	 */
 	private String duration;
+
+	/**
+	 * Declared variable tasks of type Task for class Project
+	 *
+	 */
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "projectId")
 	private List<Task> tasks;
-	
 
 	/**
 	 * Constructor
@@ -42,7 +59,7 @@ public class Project extends AuditModel {
 	 * @param duration
 	 * @param tasks
 	 */
-	public Project(Integer projectId, String name, String duration, List<Task> tasks) {
+	public Project(final Integer projectId, final String name, final String duration, final List<Task> tasks) {
 		super();
 		this.projectId = projectId;
 		this.name = name;
@@ -61,7 +78,7 @@ public class Project extends AuditModel {
 	 * @param projectId
 	 *            the projectId to set
 	 */
-	public void setProjectId(Integer projectId) {
+	public void setProjectId(final Integer projectId) {
 		this.projectId = projectId;
 	}
 
@@ -76,7 +93,7 @@ public class Project extends AuditModel {
 	 * @param name
 	 *            the name to set
 	 */
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -91,7 +108,7 @@ public class Project extends AuditModel {
 	 * @param duration
 	 *            the duration to set
 	 */
-	public void setDuration(String duration) {
+	public void setDuration(final String duration) {
 		this.duration = duration;
 	}
 
@@ -106,7 +123,7 @@ public class Project extends AuditModel {
 	 * @param tasks
 	 *            the tasks to set
 	 */
-	public void setTasks(List<Task> tasks) {
+	public void setTasks(final List<Task> tasks) {
 		this.tasks = tasks;
 	}
 

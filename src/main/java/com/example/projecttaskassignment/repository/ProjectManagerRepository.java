@@ -20,6 +20,11 @@ import com.example.projecttaskassignment.model.Task;
  */
 @Repository
 public interface ProjectManagerRepository extends JpaRepository<ProjectManager, Integer> {
+	
+	/**
+	 * Query to get list of tasks associated with project manager
+	 *
+	 */
 	@Query(value="select t from ProjectManager pm join pm.projects p join p.tasks t where pm.projectManagerId=:projectManagerId")
 	List<Task> findProjectManagerById(@Param(value="projectManagerId") Integer projectManagerId);
 }

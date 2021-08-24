@@ -14,5 +14,5 @@ import com.example.projecttaskassignment.model.Task;
  */
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Integer> {
-	
+
 }
