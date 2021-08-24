@@ -68,6 +68,13 @@ public class Project extends AuditModel {
 	}
 
 	/**
+	 * Default constructor
+	 */
+	public Project() {
+		super();
+	}
+
+	/**
 	 * @return the projectId
 	 */
 	public Integer getProjectId() {
@@ -127,4 +134,12 @@ public class Project extends AuditModel {
 		this.tasks = tasks;
 	}
 
+	/*
+	 *To string method
+	 */
+	@Override
+	public String toString() {
+		return "Project [projectId=" + projectId + ", name=" + name + ", duration=" + duration + ", tasks=" + tasks
+				+ "]";
+	}
 }

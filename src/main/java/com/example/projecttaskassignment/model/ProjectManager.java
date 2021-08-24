@@ -56,7 +56,6 @@ public class ProjectManager extends AuditModel {
 
 	/**
 	 * Constructor
-	 * 
 	 * @param projectManaferId
 	 * @param name
 	 * @param emailId
@@ -71,6 +70,13 @@ public class ProjectManager extends AuditModel {
 		this.emailId = emailId;
 		this.country = country;
 		this.projects = projects;
+	}
+
+	/**
+	 * Default constructor
+	 */
+	public ProjectManager() {
+		super();
 	}
 
 	/**
@@ -146,5 +152,14 @@ public class ProjectManager extends AuditModel {
 	 */
 	public void setProjects(final List<Project> projects) {
 		this.projects = projects;
+	}
+
+	/*
+	 * to string method
+	 */
+	@Override
+	public String toString() {
+		return "ProjectManager [projectManagerId=" + projectManagerId + ", name=" + name + ", emailId=" + emailId
+				+ ", country=" + country + ", projects=" + projects + "]";
 	}
 }

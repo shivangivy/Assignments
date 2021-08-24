@@ -40,40 +40,33 @@ public class Developer extends AuditModel {
 	private String name;
 
 	/**
-	 * Declaring variable task of Type Task for developer class
+	 * Declaring variable status of Type status for developer class
 	 *
 	 */
+
 	@OneToOne
-	@JoinColumn(name = "taskId")
-	private Task task;
+	@JoinColumn(name = "developerId")
+	private Status status;
 
 	/**
 	 * @param developerId
 	 * @param emailId
 	 * @param name
-	 * @param task
+	 * @param status
 	 */
-	public Developer(final Integer developerId, final String emailId, final String name, final Task task) {
+	public Developer(final Integer developerId, final String emailId, final String name, final Status status) {
 		super();
 		this.developerId = developerId;
 		this.emailId = emailId;
 		this.name = name;
-		this.task = task;
+		this.status = status;
 	}
 
 	/**
-	 * @return the task
+	 * Default Constructor
 	 */
-	public Task getTask() {
-		return task;
-	}
-
-	/**
-	 * @param task
-	 *            the task to set
-	 */
-	public void setTask(final Task task) {
-		this.task = task;
+	public Developer() {
+		super();
 	}
 
 	/**
@@ -119,6 +112,30 @@ public class Developer extends AuditModel {
 	 */
 	public void setName(final String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status
+	 *            the status to set
+	 */
+	public void setStatus(final Status status) {
+		this.status = status;
+	}
+
+	/*
+	 * to string method
+	 */
+	@Override
+	public String toString() {
+		return "Developer [developerId=" + developerId + ", emailId=" + emailId + ", name=" + name + ", status="
+				+ status + "]";
 	}
 
 }

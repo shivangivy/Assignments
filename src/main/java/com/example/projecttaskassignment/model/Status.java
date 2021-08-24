@@ -49,9 +49,6 @@ public class Status extends AuditModel {
 	 * Declared variable developer of type Developer for class Status
 	 *
 	 */
-	@OneToOne
-	@JoinColumn(name = "developerId")
-	private Developer developer;
 
 	/**
 	 * @param statusId
@@ -61,13 +58,20 @@ public class Status extends AuditModel {
 	 * @param developer
 	 */
 	public Status(final Integer statusId, final Integer currentlyDoingCount, final Integer completedCount,
-			final Integer toDoCount, final Developer developer) {
+			final Integer toDoCount) {
 		super();
 		this.statusId = statusId;
 		this.currentlyDoingCount = currentlyDoingCount;
 		this.completedCount = completedCount;
 		this.toDoCount = toDoCount;
-		this.developer = developer;
+
+	}
+
+	/**
+	 * parameterless constructor
+	 */
+	public Status() {
+		super();
 	}
 
 	/**
@@ -130,18 +134,13 @@ public class Status extends AuditModel {
 		this.toDoCount = toDoCount;
 	}
 
-	/**
-	 * @return the developer
+	/*
+	 * to string method
 	 */
-	public Developer getDeveloper() {
-		return developer;
+	@Override
+	public String toString() {
+		return "Status [statusId=" + statusId + ", currentlyDoingCount=" + currentlyDoingCount + ", completedCount="
+				+ completedCount + ", toDoCount=" + toDoCount + ", developer=" + "]";
 	}
 
-	/**
-	 * @param developer
-	 *            the developer to set
-	 */
-	public void setDeveloper(final Developer developer) {
-		this.developer = developer;
-	}
 }

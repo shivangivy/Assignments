@@ -3,6 +3,7 @@
  */
 package com.example.projecttaskassignment.services;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -38,6 +39,28 @@ public class TaskService {
 		} else if (dayCount >= 0 && dayCount < 3) {
 			task.setColourResult("Red");
 			return "Red";
+		}
+		return null;
+	}
+
+	/**
+	 * method to calculate status of task
+	 *
+	 */
+	public String calculateStatusofTask(final Task task) {
+		Date startedDate = task.getCreatedDate();
+		Date endate = task.getCompletedDate();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date today = new Date();
+		if ((startedDate.compareTo(today) < 0) && (endate.compareTo(today) < 0)) {
+			task.setStatus("Done");
+			return "Done";
+		} else if ((startedDate.compareTo(today) < 0) && (endate.compareTo(today) > 0)) {
+			task.setStatus("Doing");
+			return "Doing";
+		} else if ((startedDate.compareTo(today) > 0) && (endate.compareTo(today) > 0)) {
+			task.setStatus("ToDo");
+			return "ToDo";
 		}
 		return null;
 	}

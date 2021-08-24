@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -58,15 +60,24 @@ public class Task extends AuditModel {
 	private Date completedDate;
 
 	/**
+	 * Declared variable developer of type Developer for class Task
+	 *
+	 */
+	@OneToOne
+	@JoinColumn(name = "taskId")
+	private Developer developer;
+
+	/**
 	 * @param taskId
 	 * @param name
 	 * @param status
 	 * @param colourResult
 	 * @param createdDate
 	 * @param completedDate
+	 * @param developer
 	 */
-	public Task(final Integer taskId, final String name, final String status, final String colourResult,
-			final Date createdDate, final Date completedDate) {
+	public Task(Integer taskId, String name, String status, String colourResult, Date createdDate, Date completedDate,
+			Developer developer) {
 		super();
 		this.taskId = taskId;
 		this.name = name;
@@ -74,10 +85,11 @@ public class Task extends AuditModel {
 		this.colourResult = colourResult;
 		this.createdDate = createdDate;
 		this.completedDate = completedDate;
+		this.developer = developer;
 	}
-	
+
 	/**
-	 * Parameterless constructor
+	 * Default Constructor
 	 */
 	public Task() {
 		super();
@@ -94,7 +106,7 @@ public class Task extends AuditModel {
 	 * @param taskId
 	 *            the taskId to set
 	 */
-	public void setTaskId(final Integer taskId) {
+	public void setTaskId(Integer taskId) {
 		this.taskId = taskId;
 	}
 
@@ -109,7 +121,7 @@ public class Task extends AuditModel {
 	 * @param name
 	 *            the name to set
 	 */
-	public void setName(final String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -124,7 +136,7 @@ public class Task extends AuditModel {
 	 * @param status
 	 *            the status to set
 	 */
-	public void setStatus(final String status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -139,7 +151,7 @@ public class Task extends AuditModel {
 	 * @param colourResult
 	 *            the colourResult to set
 	 */
-	public void setColourResult(final String colourResult) {
+	public void setColourResult(String colourResult) {
 		this.colourResult = colourResult;
 	}
 
@@ -154,7 +166,7 @@ public class Task extends AuditModel {
 	 * @param createdDate
 	 *            the createdDate to set
 	 */
-	public void setCreatedDate(final Date createdDate) {
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 
@@ -169,18 +181,33 @@ public class Task extends AuditModel {
 	 * @param completedDate
 	 *            the completedDate to set
 	 */
-	public void setCompletedDate(final Date completedDate) {
+	public void setCompletedDate(Date completedDate) {
 		this.completedDate = completedDate;
+	}
+
+	/**
+	 * @return the developer
+	 */
+	public Developer getDeveloper() {
+		return developer;
+	}
+
+	/**
+	 * @param developer
+	 *            the developer to set
+	 */
+	public void setDeveloper(Developer developer) {
+		this.developer = developer;
 	}
 
 	/*
 	 * to string method
-	 * 
 	 */
 	@Override
 	public String toString() {
 		return "Task [taskId=" + taskId + ", name=" + name + ", status=" + status + ", colourResult=" + colourResult
-				+ ", createdDate=" + createdDate + ", completedDate=" + completedDate + "]";
+				+ ", createdDate=" + createdDate + ", completedDate=" + completedDate + ", developer=" + developer
+				+ "]";
 	}
-	
+
 }
